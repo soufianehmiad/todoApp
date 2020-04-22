@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Todo App</h1>
+    </header>
+
+    <main>
+      <!-- Start Form -->
+      <form>
+        <input
+          autocomplete="off"
+          id="todoInput"
+          type="text"
+          placeholder="Add a task to do ..."
+        />
+        <input onclick="addTask(event)" type="submit" value="Add" />
+      </form>
+      <!-- End Form -->
+
+      <!-- Start Section -->
+      <section>
+        <ul id="todoList">
+          <div class="task">
+            <i onclick="checkTask(event)" class="fa fa-check"></i>
+            <li>
+              <input type="task" value="First Task" disabled id="todoTask" />
+            </li>
+            <i onclick="editTask(event)" class="fa fa-edit"></i>
+            <i onclick="deleteTask(event)" class="fa fa-trash"></i>
+          </div>
+        </ul>
+      </section>
+      <!-- End Section -->
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
