@@ -2,48 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Todo App</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
-      crossorigin="anonymous"
-    />
+    <title>todoApp</title>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <header>
-      <h1>Todo App</h1>
-    </header>
 
-    <main>
-      <!-- Start Form -->
-      <form>
-        <input
-          autocomplete="off"
-          id="todoInput"
-          type="text"
-          placeholder="Add a task to do ..."
-        />
-        <input onclick="addTask(event)" type="submit" value="Add" />
-      </form>
-      <!-- End Form -->
+      <h1>todoApp</h1>
 
-      <!-- Start Section -->
-      <section>
-        <ul id="todoList">
-          <div class="task">
-            <i onclick="checkTask(event)" class="fa fa-check"></i>
-            <li>
-              <input type="task" value="First Task" disabled id="todoTask" />
-            </li>
-            <i onclick="editTask(event)" class="fa fa-edit"></i>
-            <i onclick="deleteTask(event)" class="fa fa-trash"></i>
-          </div>
-        </ul>
-      </section>
-      <!-- End Section -->
-    </main>
-    <script src="app.js"></script>
+      <div id="todoInput">
+        <input type="text" placeholder="Add a task ..." />
+        <button>&#10010</button>
+      </div>
+
+      <div id="todoList">
+          <div id="todo">
+        <input type="text" value="First task" />
+        <button>&#10004;</button>
+        <button>&#10006;</button>
+    </div>
+      </div>
+
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
+
+
+<!-- 
+    add: &#10010;
+    remove: &#10005; / &#10006;
+    done: &#10004;
+    edit: &#9998;
+ -->
