@@ -13,27 +13,37 @@
     <header>
       <h1>todoApp</h1>
     </header>
+    <main>
+      <div id="todoInput">
+        <input type="text" placeholder="Add a task ..." />
+        <button class="fas fa-plus"></button>
+      </div>
 
-    <div id="todoInput">
-      <input type="text" placeholder="Add a task ..." />
-      <button class="fas fa-plus"></button>
-    </div>
-
-    <ul id="todoList">
-      <li id="task">
-        <p>Fist task</p>
-        <button class="fas fa-edit"></button>
-        <button class="fas fa-trash"></button>
-      </li>
-    </ul>
+      <ul id="todoList">
+        <li class="task">
+        <li class="taskText">Fist task</li>
+        <li class="todoInfo">
+          <span class="todoDate"></span>
+          <button class="fas fa-edit"></button>
+          <button class="fas fa-trash"></button>
+        </li>
+        </li>
+      </ul>
+    </main>
 
     <script type="text/javascript" src="main.js"></script>
+    <script>
+      const dateSpan = document.querySelectorAll('.todoDate');
+      dateSpan.forEach((dateSpan) => {
+        const today = new Date(),
+          year = today.getFullYear(),
+          month = today.toLocaleString('default', { month: 'long' }),
+          day = today.getDay(),
+          time = today.getTime();
+        const date = new Date(time);
+        //
+        dateSpan.innerHTML = month + ' ' + day + 'th ' + year + ' at ' + time;
+      });
+    </script>
   </body>
 </html>
-
-<!-- 
-    add: &#10010;
-    remove: &#10005; / &#10006;
-    done: &#10004;
-    edit: &#9998;
- -->
