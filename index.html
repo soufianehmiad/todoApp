@@ -4,28 +4,32 @@
     <meta charset="UTF-8" />
     <title>todoApp</title>
     <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
   </head>
   <body>
-
+    <header>
       <h1>todoApp</h1>
+    </header>
 
-      <div id="todoInput">
-        <input type="text" placeholder="Add a task ..." />
-        <button>&#10010</button>
-      </div>
-
-      <div id="todoList">
-          <div id="todo">
-        <input type="text" value="First task" />
-        <button>&#10004;</button>
-        <button>&#10006;</button>
+    <div id="todoInput">
+      <input type="text" placeholder="Add a task ..." />
+      <button class="fas fa-plus"></button>
     </div>
-      </div>
+
+    <ul id="todoList">
+      <li id="task">
+        <p>Fist task</p>
+        <button class="fas fa-edit"></button>
+        <button class="fas fa-trash"></button>
+      </li>
+    </ul>
 
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
-
 
 <!-- 
     add: &#10010;
