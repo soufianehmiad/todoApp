@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>todoApp</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -14,36 +14,22 @@
       <h1>todoApp</h1>
     </header>
     <main>
-      <div id="todoInput">
+      <form>
         <input type="text" placeholder="Add a task ..." />
         <button class="fas fa-plus"></button>
-      </div>
+      </form>
 
       <ul id="todoList">
-        <li class="task">
-        <li class="taskText">Fist task</li>
-        <li class="todoInfo">
-          <span class="todoDate"></span>
-          <button class="fas fa-edit"></button>
-          <button class="fas fa-trash"></button>
-        </li>
+        <li>
+          <p>task text</p>
+          <div>
+            <p>Mars 13rd 2008</p>
+            <button class="fas fa-edit"></button>
+            <button class="fas fa-trash"></button>
+          </div>
         </li>
       </ul>
     </main>
-
-    <script type="text/javascript" src="main.js"></script>
-    <script>
-      const dateSpan = document.querySelectorAll('.todoDate');
-      dateSpan.forEach((dateSpan) => {
-        const today = new Date(),
-          year = today.getFullYear(),
-          month = today.toLocaleString('default', { month: 'long' }),
-          day = today.getDay(),
-          time = today.getTime();
-        const date = new Date(time);
-        //
-        dateSpan.innerHTML = month + ' ' + day + 'th ' + year + ' at ' + time;
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>

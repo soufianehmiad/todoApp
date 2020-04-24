@@ -1,16 +1,35 @@
 const todoInput = document.getElementById('todoInput');
 const todoList = document.getElementById('todoList');
 
-todoInput.children[1].addEventListener('click', () => {
-  addTask();
+todoInput.children[1].addEventListener('click', (event) => {
+  addTask(event);
 });
 
+todoInput.children[0].addEventListener('keyup', (event) => {
+  if (event.keyCode === 13) {
+    addTask(event);
+  }
+});
+
+function removeTask(e) {
+  e.remove();
+}
+
+function editTask(e) {
+  console.log(e);
+}
+
 function addTask() {
+  if (todoInput.children[0].value == '') {
+    todoInput.children[0].value = 'Empty';
+  }
   // Input value
   const inputTask = todoInput.children[0].value;
+
   // add ul
-  const todoListUl = document.createElement('ul');
-  todoListUl.id = 'todoList';
+  const todoUl = document.createElement('ul');
+  todoUl.id = 'todoList';
+
   // add li text
   const taskTextLi = document.createElement('li');
   taskTextLi.classList.add('taskText');
@@ -21,20 +40,38 @@ function addTask() {
   taskInfoLi.classList.add('todoInfo');
   const taskInfoSpan = document.createElement('span');
   taskInfoSpan.classList.add('todoDate');
+  taskInfoSpan.innerHTML = taskDate();
   const taskInfoEdit = document.createElement('button');
   taskInfoEdit.classList.add('fa', 'fa-edit');
+  taskInfoEdit.addEventListener('click', () => {
+    editTask(todoUl);
+  });
   const taskInfoRemove = document.createElement('button');
   taskInfoRemove.classList.add('fa', 'fa-trash');
+  taskInfoRemove.addEventListener('click', () => {
+    removeTask(todoUl);
+  });
 
   taskInfoLi.appendChild(taskInfoSpan);
   taskInfoLi.appendChild(taskInfoEdit);
   taskInfoLi.appendChild(taskInfoRemove);
 
-  todoListUl.appendChild(taskTextLi);
-  todoListUl.appendChild(taskInfoLi);
+  todoUl.appendChild(taskTextLi);
+  todoUl.appendChild(taskInfoLi);
 
-  //todoListUl.parentElement.appendChild(todoListUl);
-  console.log(todoListUl.previousElementSibling);
+  const main = document.getElementById('main');
+  main.insertBefore(todoUl, main.children[1]);
+  todoInput.children[0].value = '';
+}
+
+/* taskDate() */
+function taskDate() {
+  const today = new Date(),
+    year = today.getFullYear(),
+    month = today.toLocaleString('default', { month: 'long' }),
+    day = today.getDay(),
+    time = today.getTime();
+  return month + ' ' + day + 'th ' + year + ' at ' + time;
 }
 
 /* 
